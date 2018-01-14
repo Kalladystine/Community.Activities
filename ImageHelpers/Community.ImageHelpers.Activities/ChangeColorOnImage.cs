@@ -12,7 +12,6 @@ namespace Community.ImageHelpers.Activities
     {
         public InArgument<Image> ImageToConvert { get; set; }
 
-        [Description()]
         public InArgument<Color> ColorToChange { get; set; }
 
         public InArgument<Color> ColorToSet { get; set; }

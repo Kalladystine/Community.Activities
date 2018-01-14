@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ChangeColorOnImage.cs" />
     <Compile Include="DesignerMetadata.cs" />
+    <Compile Include="GetColorsFromImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

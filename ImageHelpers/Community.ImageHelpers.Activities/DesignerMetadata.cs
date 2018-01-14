@@ -15,17 +15,17 @@ namespace Community.ImageHelpers.Activities
         {
             var builder = new AttributeTableBuilder();
 
-            var categoryAttribute = new CategoryAttribute("Community.ImageHelpers");
+            var imageHelpersCategoryAttribute = new CategoryAttribute("Community.ImageHelpers");
             var inputCategoryAttribute = new CategoryAttribute("Input");
-            var outputCategorAttribute = new CategoryAttribute("Output");
+            var outputCategoryAttribute = new CategoryAttribute("Output");
             var requiredArgumentAttribute = new RequiredArgumentAttribute();
+            var skipBordersCategoryAttribute = new CategoryAttribute("SkipBorders");
 
             #region ChangeColorOnImageAttributes
             var changeColorOnImageType = typeof(ChangeColorOnImage);
-            var skipBordersCategoryAttribute = new CategoryAttribute("SkipBorders");
-
+            
             #region Categories
-            builder.AddCustomAttributes(changeColorOnImageType, categoryAttribute);
+            builder.AddCustomAttributes(changeColorOnImageType, imageHelpersCategoryAttribute);
 
             builder.AddCustomAttributes(changeColorOnImageType, "ImageToConvert", inputCategoryAttribute);
             builder.AddCustomAttributes(changeColorOnImageType, "ColorToChange", inputCategoryAttribute);
@@ -36,7 +36,7 @@ namespace Community.ImageHelpers.Activities
             builder.AddCustomAttributes(changeColorOnImageType, "SkipPixelsFromRight", skipBordersCategoryAttribute);
             builder.AddCustomAttributes(changeColorOnImageType, "SkipPixelsFromBottom", skipBordersCategoryAttribute);
 
-            builder.AddCustomAttributes(changeColorOnImageType, "ChangedImage", outputCategorAttribute);
+            builder.AddCustomAttributes(changeColorOnImageType, "ChangedImage", outputCategoryAttribute);
             #endregion
             
             #region RequiredArguments
@@ -51,6 +51,33 @@ namespace Community.ImageHelpers.Activities
             builder.AddCustomAttributes(changeColorOnImageType, "ColorToChange", new DescriptionAttribute("System.Drawing.Color describing color range to change."));
             builder.AddCustomAttributes(changeColorOnImageType, "ColorToSet", new DescriptionAttribute("System.Drawing.Color describing color to set instead of ColorToChange."));
             builder.AddCustomAttributes(changeColorOnImageType, "ChangedImage", new DescriptionAttribute("New System.Drawing.Image generated from ImageToConvert."));
+            #endregion
+            #endregion
+
+            #region GetColorsFromImage
+            var getColorsFromImageType = typeof(GetColorsFromImage);
+
+            #region Categories
+            builder.AddCustomAttributes(getColorsFromImageType, imageHelpersCategoryAttribute);
+
+            builder.AddCustomAttributes(getColorsFromImageType, "ImageToCheck", inputCategoryAttribute);
+            
+            builder.AddCustomAttributes(getColorsFromImageType, "SkipPixelsFromLeft", skipBordersCategoryAttribute);
+            builder.AddCustomAttributes(getColorsFromImageType, "SkipPixelsFromTop", skipBordersCategoryAttribute);
+            builder.AddCustomAttributes(getColorsFromImageType, "SkipPixelsFromRight", skipBordersCategoryAttribute);
+            builder.AddCustomAttributes(getColorsFromImageType, "SkipPixelsFromBottom", skipBordersCategoryAttribute);
+            
+            builder.AddCustomAttributes(getColorsFromImageType, "ColorsInImage", outputCategoryAttribute);
+            #endregion
+
+            #region RequiredArguments
+            builder.AddCustomAttributes(getColorsFromImageType, "ImageToCheck", requiredArgumentAttribute);
+            builder.AddCustomAttributes(getColorsFromImageType, "ColorsInImage", requiredArgumentAttribute);
+            #endregion
+
+            #region ArgumentDescriptions
+            builder.AddCustomAttributes(getColorsFromImageType, "ImageToCheck", new DescriptionAttribute("Image to get colors from."));
+            builder.AddCustomAttributes(getColorsFromImageType, "ColorsInImage", new DescriptionAttribute("Sorted list of Colors, keyed by percentage of image covered. By default sorted ascending, use .Reverse to get from most common Color first."));
             #endregion
             #endregion
 
