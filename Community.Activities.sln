@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ImageHelpers", "ImageHelper
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.ImageHelpers", "ImageHelpers\Community.ImageHelpers\Community.ImageHelpers.csproj", "{AEB5E013-0624-4E99-AC62-7C21D70A0F4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.ImageHelpers.Activities", "Community.ImageHelpers.Activities\Community.ImageHelpers.Activities.csproj", "{F8E1580A-87FD-43CB-A96D-F05BCDDC38AB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Community.ImageHelpers.Activities", "ImageHelpers\Community.ImageHelpers.Activities\Community.ImageHelpers.Activities.csproj", "{F8E1580A-87FD-43CB-A96D-F05BCDDC38AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

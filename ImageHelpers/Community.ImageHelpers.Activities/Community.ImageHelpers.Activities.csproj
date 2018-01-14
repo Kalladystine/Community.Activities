@@ -18,7 +18,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\Output\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -50,7 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ImageHelpers\Community.ImageHelpers\Community.ImageHelpers.csproj">
+    <ProjectReference Include="..\Community.ImageHelpers\Community.ImageHelpers.csproj">
       <Project>{aeb5e013-0624-4e99-ac62-7c21d70a0f4b}</Project>
       <Name>Community.ImageHelpers</Name>
     </ProjectReference>
