@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Community.ImageHelpers.Activities")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Helper activities to work with images")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Community.ImageHelpers.Activities")]

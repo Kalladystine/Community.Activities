@@ -10,32 +10,18 @@ namespace Community.ImageHelpers.Activities
 {
     public sealed class ChangeColorOnImage : CodeActivity
     {
-        [RequiredArgument]
-        [Category("Input")]
-        [Description("Original image object to change color from.")]
         public InArgument<Image> ImageToConvert { get; set; }
 
-        [RequiredArgument]
-        [Category("Input")]
-        [Description("System.Drawing.Color describing color range to change.")]
+        [Description()]
         public InArgument<Color> ColorToChange { get; set; }
 
-        [RequiredArgument]
-        [Category("Input")]
-        [Description("System.Drawing.Color describing color range to change ColorToChange to.")]
         public InArgument<Color> ColorToSet { get; set; }
 
-        [Category("Skip borders")]
         public InArgument<int> SkipPixelsFromLeft { get; set; }
-        [Category("Skip borders")]
         public InArgument<int> SkipPixelsFromTop { get; set; }
-        [Category("Skip borders")]
         public InArgument<int> SkipPixelsFromRight { get; set; }
-        [Category("Skip borders")]
         public InArgument<int> SkipPixelsFromBottom { get; set; }
 
-        [Category("Output")]
-        [Description("New System.Drawing.Image generated from ImageToConvert.")]
         public OutArgument<Image> ChangedImage { get; set; }
 
         protected override void Execute(CodeActivityContext context)
@@ -44,7 +30,7 @@ namespace Community.ImageHelpers.Activities
             Color undesiredColor = context.GetValue(this.ColorToChange);
             Color desiredColor = context.GetValue(this.ColorToSet);
 
-            // Set number of pixels to skip
+            // Get number of pixels to skip
             int skipLeft = context.GetValue(this.SkipPixelsFromLeft);
             int skipTop = context.GetValue(this.SkipPixelsFromTop);
             int skipRight = context.GetValue(this.SkipPixelsFromRight);
