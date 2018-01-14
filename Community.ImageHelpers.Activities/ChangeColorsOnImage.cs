@@ -6,9 +6,8 @@ using System.Activities;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace CleanImageActivities
+namespace Community.ImageHelpers.Activities
 {
-
     public sealed class ChangeColorOnImage : CodeActivity
     {
         [RequiredArgument]
@@ -58,37 +57,12 @@ namespace CleanImageActivities
                 for (int y = 0 + skipBottom; y < newBitmap.Height - skipTop; y++)
                 {
                     var originalColor = newBitmap.GetPixel(x, y);
-                    if (ClassifyAsGeneralColor(originalColor) == undesiredColor)
+                    if (StaticHelpers.ClassifyAsGeneralColor(originalColor) == undesiredColor)
                         newBitmap.SetPixel(x, y, desiredColor);
                 }
             }
 
             ChangedImage.Set(context, newBitmap);
-        }
-
-        /// <summary>
-        /// Classifies given Color to general range of colors. Shamelessly nicked from https://stackoverflow.com/a/8457981 .
-        /// </summary>
-        /// <param name="c">Color to classify.</param>
-        /// <returns>General Color.</returns>
-        Color ClassifyAsGeneralColor(Color c)
-        {
-            float hue = c.GetHue();
-            float sat = c.GetSaturation();
-            float lgt = c.GetBrightness();
-
-            if (lgt < 0.2) return Color.Black;
-            if (lgt > 0.8) return Color.White;
-
-            if (sat < 0.25) return Color.Gray;
-
-            if (hue < 30) return Color.Red;
-            if (hue < 90) return Color.Yellow;
-            if (hue < 150) return Color.Green;
-            if (hue < 210) return Color.Cyan;
-            if (hue < 270) return Color.Blue;
-            if (hue < 330) return Color.Magenta;
-            return Color.Red;
         }
     }
 }
